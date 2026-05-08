@@ -10,6 +10,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      cursor: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><ellipse cx="16" cy="22" rx="6" ry="8" fill="%23ff6b9d"/><ellipse cx="6" cy="8" rx="3.5" ry="5.5" fill="%23ff6b9d" transform="rotate(-30 6 8)"/><ellipse cx="14" cy="2" rx="3.5" ry="5.5" fill="%23ff6b9d"/><ellipse cx="22" cy="2" rx="3.5" ry="5.5" fill="%23ff6b9d"/><ellipse cx="28" cy="8" rx="3.5" ry="5.5" fill="%23ff6b9d" transform="rotate(30 28 8)"/></svg>') 16 4, auto;
     }
 
     body {
@@ -278,6 +279,98 @@
         font-size: 1.8em;
       }
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-content h2 {
+      color: #ff6b9d;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .modal-content p, .modal-content li {
+      color: #5a3c5a;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .modal-content ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover {
+      color: #ff6b9d;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffc1d6;
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -415,7 +508,81 @@
 
 <footer>
   <p>© 2026 Hundezucht von der Mantracher Mühle — Mit Liebe für Hundezüchter</p>
+  <div class="footer-links">
+    <a href="#" onclick="openModal('agbModal'); return false;">AGB</a>
+    <a href="#" onclick="openModal('impressumModal'); return false;">Impressum</a>
+    <a href="mailto:urschler@gmx.net">Kontakt</a>
+  </div>
 </footer>
+
+<!-- AGB Modal -->
+<div id="agbModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('agbModal')">&times;</span>
+    <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">1. Geltungsbereich</h3>
+    <p>Diese AGB regeln die Beziehung zwischen der Hundezucht von der Mantracher Mühle und ihren Kunden.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">2. Anfragen und Reservierungen</h3>
+    <p>Interessenten können über das Kontaktformular eine unverbindliche Anfrage stellen. Eine Reservierung wird erst durch schriftliche Bestätigung wirksam.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">3. Preise</h3>
+    <p>Alle genannten Preise sind in Euro (EUR) inklusive gesetzlicher Mehrwertsteuer. Die geltenden Preise entnehmen Sie bitte unserer aktuellen Preisliste.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">4. Zahlung</h3>
+    <p>Die Zahlung ist fällig bei Übergabe des Hundes. Akzeptierte Zahlungsarten werden mit dem Verkäufer vereinbart.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">5. Gewährleistung</h3>
+    <p>Der Hund wird in gutem Gesundheitszustand übergeben. Bei Mängeln bitten wir um Mitteilung innerhalb von 14 Tagen nach Übergabe.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">6. Datenschutz</h3>
+    <p>Ihre persönlichen Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">7. Haftung</h3>
+    <p>Die Züchter haften nicht für Schäden, die durch unsachgemäße Haltung oder Pflege entstehen.</p>
+  </div>
+</div>
+
+<!-- Impressum Modal -->
+<div id="impressumModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('impressumModal')">&times;</span>
+    <h2>Impressum</h2>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">Anbieter:</h3>
+    <p>
+      <strong>Hundezucht von der Mantracher Mühle</strong><br>
+      Urschler<br>
+      Mantrach 59<br>
+      8452 Großklein<br>
+      Österreich
+    </p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">Kontaktdaten:</h3>
+    <p>
+      <strong>Telefon:</strong> +43 699 11 320 237<br>
+      <strong>Email:</strong> urschler@gmx.net
+    </p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">Verantwortlich für den Inhalt (§7 TMG):</h3>
+    <p>
+      Urschler<br>
+      Mantrach 59<br>
+      8452 Großklein<br>
+      Österreich
+    </p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">Haftungsausschluss:</h3>
+    <p>Trotz sorgfältiger Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">Urheberrecht:</h3>
+    <p>Die Inhalte dieser Website sind urheberrechtlich geschützt. Eine Vervielfältigung oder Verwendung ohne Genehmigung ist untersagt.</p>
+    
+    <h3 style="color: #ff6b9d; margin-top: 20px; margin-bottom: 10px;">Datenschutz:</h3>
+    <p>Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter urschler@gmx.net</p>
+  </div>
+</div>
 
 <script>
   let currentIndex = 0;
@@ -452,6 +619,21 @@
     alert(`Danke ${name}! Ihre Anfrage wurde empfangen. Wir kontaktieren Sie unter ${phone} oder ${email}`);
     
     event.target.reset();
+  }
+
+  // Modal Functions
+  function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = "none";
+    }
   }
 </script>
 
