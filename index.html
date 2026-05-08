@@ -14,24 +14,39 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: #2c3e50;
+      background: linear-gradient(135deg, #fff5f9 0%, #ffe8f0 100%);
+      color: #5a3c5a;
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #ff9bb3 0%, #ffc1d6 100%);
       color: white;
       text-align: center;
       padding: 60px 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 40px rgba(255, 155, 179, 0.3);
     }
 
     header h1 {
-      font-size: 3em;
+      font-size: 2.8em;
       margin-bottom: 15px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
       letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .dog-icon {
+      width: 80px;
+      height: 80px;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
     }
 
     .header-info {
@@ -50,7 +65,8 @@
     }
 
     .header-info strong {
-      color: #ffd700;
+      color: #fff5f9;
+      font-weight: bold;
     }
 
     .container {
@@ -69,7 +85,7 @@
       text-align: center;
       font-size: 2.5em;
       margin-bottom: 40px;
-      color: #667eea;
+      color: #ff6b9d;
     }
 
     .slider {
@@ -91,7 +107,7 @@
       box-sizing: border-box;
       text-align: center;
       padding: 40px;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(135deg, #fff5f9 0%, #ffe8f0 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -114,7 +130,7 @@
 
     .card-info h2 {
       font-size: 2.2em;
-      color: #667eea;
+      color: #ff6b9d;
       margin-bottom: 15px;
     }
 
@@ -125,7 +141,7 @@
     }
 
     .card-info p strong {
-      color: #764ba2;
+      color: #ff6b9d;
     }
 
     .slider-buttons {
@@ -138,19 +154,19 @@
     button {
       padding: 12px 30px;
       border: none;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #ff9bb3 0%, #ff6b9d 100%);
       color: white;
       font-size: 16px;
       font-weight: bold;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 5px 20px rgba(255, 155, 179, 0.4);
       transition: all 0.3s ease;
     }
 
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+      box-shadow: 0 8px 30px rgba(255, 155, 179, 0.6);
     }
 
     button:active {
@@ -158,7 +174,7 @@
     }
 
     .form-section {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #ff9bb3 0%, #ffc1d6 100%);
       padding: 60px 20px;
       margin-top: 0;
     }
@@ -190,8 +206,8 @@
 
     input:focus, textarea:focus {
       outline: none;
-      border-color: #ffd700;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      border-color: #ff6b9d;
+      box-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
     }
 
     textarea {
@@ -200,16 +216,19 @@
     }
 
     form button {
-      background: #ffd700;
-      color: #333;
+      background: white;
+      color: #ff6b9d;
       font-weight: bold;
       font-size: 1.1em;
       padding: 15px;
       margin-top: 10px;
+      border: 2px solid white;
     }
 
     form button:hover {
-      background: #ffed4e;
+      background: transparent;
+      color: white;
+      border: 2px solid white;
     }
 
     footer {
@@ -265,7 +284,72 @@
 <body>
 
 <header>
-  <h1>🐶 Hundezucht von der Mantracher Mühle</h1>
+  <h1>
+    <svg class="dog-icon" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          @keyframes tail-wag {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(25deg); }
+            75% { transform: rotate(-25deg); }
+          }
+          @keyframes head-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+          }
+          @keyframes blink {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0; }
+          }
+          .tail { transform-origin: 160px 80px; animation: tail-wag 1.5s ease-in-out infinite; }
+          .head { animation: head-bounce 2s ease-in-out infinite; }
+          .left-eye { animation: blink 3s ease-in-out infinite; }
+          .right-eye { animation: blink 3s ease-in-out infinite 0.3s; }
+        </style>
+      </defs>
+      
+      <ellipse cx="100" cy="140" rx="45" ry="60" fill="#FFE8F0" stroke="#ffc1d6" stroke-width="2"/>
+      
+      <rect x="70" y="190" width="12" height="35" rx="6" fill="#FFE8F0" stroke="#ffc1d6" stroke-width="2"/>
+      <rect x="118" y="190" width="12" height="35" rx="6" fill="#FFE8F0" stroke="#ffc1d6" stroke-width="2"/>
+      
+      <ellipse cx="76" cy="230" rx="8" ry="6" fill="#FFB6C1"/>
+      <ellipse cx="124" cy="230" rx="8" ry="6" fill="#FFB6C1"/>
+      
+      <g class="tail">
+        <path d="M 150 90 Q 180 50 170 20" stroke="#FFE8F0" stroke-width="14" fill="none" stroke-linecap="round"/>
+      </g>
+      
+      <g class="head">
+        <ellipse cx="100" cy="60" rx="38" ry="42" fill="#FFE8F0" stroke="#ffc1d6" stroke-width="2"/>
+        
+        <ellipse cx="68" cy="25" rx="15" ry="28" fill="#FFE8F0" stroke="#ffc1d6" stroke-width="2" transform="rotate(-25 68 25)"/>
+        <ellipse cx="132" cy="25" rx="15" ry="28" fill="#FFE8F0" stroke="#ffc1d6" stroke-width="2" transform="rotate(25 132 25)"/>
+        
+        <ellipse cx="68" cy="28" rx="8" ry="18" fill="#FFB6C1" transform="rotate(-25 68 28)"/>
+        <ellipse cx="132" cy="28" rx="8" ry="18" fill="#FFB6C1" transform="rotate(25 132 28)"/>
+        
+        <ellipse cx="100" cy="85" rx="22" ry="18" fill="#FFF0F7" stroke="#ffc1d6" stroke-width="2"/>
+        
+        <ellipse cx="100" cy="82" rx="10" ry="8" fill="#333"/>
+        
+        <circle class="left-eye" cx="82" cy="45" r="6" fill="white" stroke="#ffc1d6" stroke-width="1"/>
+        <circle class="right-eye" cx="118" cy="45" r="6" fill="white" stroke="#ffc1d6" stroke-width="1"/>
+        
+        <circle cx="84" cy="46" r="3.5" fill="#333"/>
+        <circle cx="120" cy="46" r="3.5" fill="#333"/>
+        
+        <ellipse cx="100" cy="100" rx="8" ry="6" fill="#FF69B4"/>
+        
+        <path d="M 100 82 L 100 92" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      
+      <g opacity="0.6">
+        <text x="155" y="30" font-size="20" fill="#FFB6C1" opacity="0.8">♥</text>
+      </g>
+    </svg>
+    Hundezucht von der Mantracher Mühle
+  </h1>
   <div class="header-info">
     <p>📍 <strong>Mantrach 59, 8452 Großklein</strong></p>
     <p>📞 <strong>+43 699 11 320 237</strong></p>
@@ -318,19 +402,19 @@
 
 <div class="form-section">
   <div class="container">
-    <h2>✨ Interessiert?</h2>
+    <h2>Schreiben Sie uns</h2>
     <form onsubmit="handleSubmit(event)">
       <input type="text" id="name" placeholder="Ihr Name" required>
       <input type="tel" id="phone" placeholder="Telefonnummer" required>
       <input type="email" id="email" placeholder="E-Mail-Adresse" required>
       <textarea id="message" placeholder="Erzählen Sie uns von Ihrem Interesse..."></textarea>
-      <button type="submit">📧 Nachricht absenden</button>
+      <button type="submit">Nachricht absenden</button>
     </form>
   </div>
 </div>
 
 <footer>
-  <p>© 2026 Hundezucht von der Mantracher Mühle — Mit ❤️ für Hundezüchter</p>
+  <p>© 2026 Hundezucht von der Mantracher Mühle — Mit Liebe für Hundezüchter</p>
 </footer>
 
 <script>

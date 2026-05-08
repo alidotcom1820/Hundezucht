@@ -1,0 +1,78 @@
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes tail-wag {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(25deg); }
+        75% { transform: rotate(-25deg); }
+      }
+      @keyframes head-bounce {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes blink {
+        0%, 90%, 100% { opacity: 1; }
+        95% { opacity: 0; }
+      }
+      .tail { transform-origin: 160px 80px; animation: tail-wag 1.5s ease-in-out infinite; }
+      .head { animation: head-bounce 2s ease-in-out infinite; }
+      .left-eye { animation: blink 3s ease-in-out infinite; }
+      .right-eye { animation: blink 3s ease-in-out infinite 0.3s; }
+    </style>
+  </defs>
+  
+  <!-- Körper -->
+  <ellipse cx="100" cy="140" rx="45" ry="60" fill="#D4A574" stroke="#8B6F47" stroke-width="2"/>
+  
+  <!-- Vorderpfoten -->
+  <rect x="70" y="190" width="12" height="35" rx="6" fill="#D4A574" stroke="#8B6F47" stroke-width="2"/>
+  <rect x="118" y="190" width="12" height="35" rx="6" fill="#D4A574" stroke="#8B6F47" stroke-width="2"/>
+  
+  <!-- Pfotenballen -->
+  <ellipse cx="76" cy="230" rx="8" ry="6" fill="#FFB6C1"/>
+  <ellipse cx="124" cy="230" rx="8" ry="6" fill="#FFB6C1"/>
+  
+  <!-- Schwanz (animiert) -->
+  <g class="tail">
+    <path d="M 150 90 Q 180 50 170 20" stroke="#D4A574" stroke-width="14" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Kopf (animiert) -->
+  <g class="head">
+    <!-- Kopf Grundform -->
+    <ellipse cx="100" cy="60" rx="38" ry="42" fill="#D4A574" stroke="#8B6F47" stroke-width="2"/>
+    
+    <!-- Ohren -->
+    <ellipse cx="68" cy="25" rx="15" ry="28" fill="#D4A574" stroke="#8B6F47" stroke-width="2" transform="rotate(-25 68 25)"/>
+    <ellipse cx="132" cy="25" rx="15" ry="28" fill="#D4A574" stroke="#8B6F47" stroke-width="2" transform="rotate(25 132 25)"/>
+    
+    <!-- Innen Ohren -->
+    <ellipse cx="68" cy="28" rx="8" ry="18" fill="#FFB6C1" transform="rotate(-25 68 28)"/>
+    <ellipse cx="132" cy="28" rx="8" ry="18" fill="#FFB6C1" transform="rotate(25 132 28)"/>
+    
+    <!-- Schnauze -->
+    <ellipse cx="100" cy="85" rx="22" ry="18" fill="#E8C8A0" stroke="#8B6F47" stroke-width="2"/>
+    
+    <!-- Nase -->
+    <ellipse cx="100" cy="82" rx="10" ry="8" fill="#333"/>
+    
+    <!-- Augen -->
+    <circle class="left-eye" cx="82" cy="45" r="6" fill="white" stroke="#8B6F47" stroke-width="1"/>
+    <circle class="right-eye" cx="118" cy="45" r="6" fill="white" stroke="#8B6F47" stroke-width="1"/>
+    
+    <!-- Pupillen -->
+    <circle cx="84" cy="46" r="3.5" fill="#333"/>
+    <circle cx="120" cy="46" r="3.5" fill="#333"/>
+    
+    <!-- Zunge -->
+    <ellipse cx="100" cy="100" rx="8" ry="6" fill="#FF69B4"/>
+    
+    <!-- Mund -->
+    <path d="M 100 82 L 100 92" stroke="#333" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Herz Animation (optional) -->
+  <g opacity="0.8">
+    <text x="155" y="30" font-size="20" fill="#FFB6C1" opacity="0.6">♥</text>
+  </g>
+</svg>
