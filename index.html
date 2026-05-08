@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liebevolle Hundezucht</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffafc;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background: #ffe4ec;
+      border-bottom: 3px solid #ffc1d6;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    header p {
+      margin: 5px 0;
+    }
+
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .card {
+      min-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .info {
+      margin-top: 15px;
+    }
+
+    .buttons {
+      text-align: center;
+      margin: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #ff9bb3;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    button:hover {
+      background: #ff6f96;
+    }
+
+    .form-section {
+      background: #fff0f5;
+      padding: 30px;
+      margin-top: 20px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffe4ec;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🐶 Hundezucht von der Mantracher Mühle</h1>
+  <p>Adresse: Mantrach 59, 8452 Großklein</p>
+  <p>Telefon: +43 699 11 320 237</p>
+  <p>Email: urschler@gmx.net</p>
+</header>
+
+<div class="slider">
+  <div class="slides" id="slides">
+
+    <!-- Hund 1 -->
+    <div class="card">
+      <img src="hund1.jpg" alt="Hund 1">
+      <div class="info">
+        <h2>Bella</h2>
+        <p>Rasse: Golden Retriever</p>
+        <p>Alter: 2 Jahre</p>
+        <p>Sehr verspielt und kinderlieb.</p>
+      </div>
+    </div>
+
+    <!-- Hund 2 -->
+    <div class="card">
+      <img src="hund2.jpg" alt="Hund 2">
+      <div class="info">
+        <h2>Max</h2>
+        <p>Rasse: Labrador</p>
+        <p>Alter: 1 Jahr</p>
+        <p>Freundlich und aktiv.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="buttons">
+  <button onclick="prevSlide()">Zurück</button>
+  <button onclick="nextSlide()">Weiter</button>
+</div>
+
+<div class="form-section">
+  <h2 style="text-align:center;">Anfrage senden</h2>
+  <form>
+    <input type="text" placeholder="Ihr Name" required>
+    <input type="tel" placeholder="Telefonnummer" required>
+    <input type="email" placeholder="E-Mail">
+    <textarea placeholder="Ihre Nachricht"></textarea>
+    <button type="submit">Absenden</button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2026 Hundezucht von der Mantracher Mühle</p>
+</footer>
+
+<script>
+  let index = 0;
+  const slides = document.getElementById("slides");
+
+  function showSlide() {
+    slides.style.transform = "translateX(" + (-index * 100) + "%)";
+  }
+
+  function nextSlide() {
+    if (index < slides.children.length - 1) {
+      index++;
+      showSlide();
+    }
+  }
+
+  function prevSlide() {
+    if (index > 0) {
+      index--;
+      showSlide();
+    }
+  }
+</script>
+
+</body>
+</html>
